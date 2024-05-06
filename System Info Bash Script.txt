@@ -170,7 +170,7 @@
             sleep 1
 
         echo 'The systems IP information is: '
-        ifconfig
+        ip addr
         ;;
     utilization)
 
