@@ -1,5 +1,3 @@
-System Info Bash Script
-
 #! /bin/bash
 
 # Welcome message
@@ -23,16 +21,20 @@ System Info Bash Script
 
 # Selection menu
 
-        echo 'Hostname         Displays system hostname and other information'
-        echo 'OS               Displays the operating system information'
-        echo 'Uptime           Displays how long the current system has been running'
-        echo 'Kernal           Displays the Linux Kernal version information'
-        echo 'CPU              Displays the systems CPU information'
-        echo 'Memory           Displays how much memory is available on the current system'
-        echo 'IP               Displays the IP address information for the current system'
-        echo 'Utilization      Displays the amount of filesystem utilization and the filesystem types'
-        echo 'Log              Displays the last five general log files that contain the word "error"'
-        echo 'Quit             Quits the scripts'
+        echo 'Hostname          Displays system hostname and other information'
+        echo 'OS                Displays the operating system information'
+        echo 'Uptime                Displays how long the current system has been running'
+        echo 'Kernal                Displays the Linux Kernal version information'
+        echo 'Architecture          Displays the systems hardware achitecure'
+        echo 'Hardware          Displays the systems hardware information'
+        echo 'CPU               Displays the systems CPU information'
+        echo 'Memory                Displays how much memory is available on the current system'
+        echo 'IP                Displays the IP address information for the current system'
+        echo 'Utilization           Displays the amount of filesystem utilization and the filesystem types'
+        echo 'Log               Displays the last five general log files that contain the word "error"'
+        echo 'USB               Displays information about any active attached devices'
+        echo 'Processes         Displays the top 10 running process on this system'
+        echo 'Quit              Quits the scripts'
 
 # User Selection
 
@@ -100,6 +102,34 @@ System Info Bash Script
         echo 'This is the Linux Kernal information: '
         uname -r
         ;;
+    architecture)
+
+        echo 'Please wait while I get that information for you!'
+
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+
+        echo 'this is the current systems hardware architecture:'
+        uname -m
+        ;;
+    hardware)
+
+        echo 'Please wait while I get that information for you!'
+
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+
+        echo 'This is the current systems hardware information:'
+        sudo lshw -short
+        ;;
     cpu)
     
         echo 'Please wait while I get that information for you!'
@@ -158,7 +188,7 @@ System Info Bash Script
         ;;
     log)
 
-        echo 'Please wait while I get that information for you!'
+       echo 'Please wait while I get that information for you!'
     
             echo '.'
             sleep 1
@@ -169,6 +199,34 @@ System Info Bash Script
 
         echo 'These are the last five general logs that contain the word "error"'
         grep -i error /var/log/syslog | tail -n 5
+        ;;
+    usb)
+
+        echo 'Please wait while I get that information for you!'
+    
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+
+        echo 'Here is a list of all active devices that are connected to this system:'
+        lsusb
+        ;;
+    processes)
+
+        echo 'Please wait while I get that information for you!'
+    
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+            echo '.'
+            sleep 1
+
+        echo 'Here are the top 10 running proccesses:'
+        top | head
         ;;
     quit)
         echo 'Exiting'
